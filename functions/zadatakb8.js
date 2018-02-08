@@ -2,24 +2,30 @@
 Note: A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.*/
 
 function primeNumber(number) {
-    
-   var msg = " ";
-    
-    for (var i = 2; i <= number; i++) {
+
+    var msg = " ";
+
+    if (number === 1 || number === 2) {
+        msg = number + ' is a prime number';
+        return msg;
+    }
+
+    for (var i = 2; i < number; i++) {
 
         if (number % i === 0) {
-        
+
             msg = number + ' is not a prime number';
 
             break;
         }
 
         else {
-        
+
             msg = number + ' is a prime number';
         }
     }
 
     return msg;
 }
-console.log(primeNumber(2));
+
+console.log(primeNumber(3));
