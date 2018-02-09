@@ -28,6 +28,6 @@ function yearsUntilRetirement(yearOfBirth, gender) {
     }
     return sufferTime;
 }
-    console.log(yearsUntilRetirement(1985,"m"));
+    console.log(yearsUntilRetirement(1998,"m"));
     
 

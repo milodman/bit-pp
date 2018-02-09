@@ -4,37 +4,8 @@
     "My random string", "+" -> "My+random+string"
     "My random string" -> "My-random-string"
 */
-/*function replaceSpaces(str, separator) {
-    var changed;
-    for (i = 0; i < str.length; i++) {
-
-        if (str[i] === " ") {
-            str[i] === separator;
-            
-        }
-    }
-   return str;
-}
-console.log(replaceSpaces("my radnom string", "+"));
-*/
-
 /*
-function strToArr(str, character){
-    var arr = [];
-    for (let i = 0; i < str.length; i++) {
-        arr[i] = str[i];
-        if(arr[i] == ' ' && typeof character === 'undefined'){
-            arr[i] = '-';
-       
-        } 
-        else if(arr[i] === ' '){
-            arr[i] = character;
-        }
-
-     return arr;
-}
-}
-console.log(strToArr("Matija Ljuba", ))*/
+poluuspesni pokusaj
 
 function convert(string,char) {
     var arr = [];
@@ -49,4 +20,25 @@ function convert(string,char) {
    
     return arr;
 }
-console.log(convert(" ds a ", "$"))
+console.log(convert(" ds a ", "$"))*/
+
+function strToArr(str, character){
+    var arr = [];
+    var sum = "";
+    for (i = 0; i < str.length; i++) {
+        if(str[i] === " " && character === undefined){
+            arr[i] = "-";
+        } else if(str[i] === " "){
+            arr[i] = character;
+        } else {
+        arr[i] = str[i];
+        }
+    }
+    for (let i = 0; i < arr.length; i++) {
+       sum += arr[i]
+    }
+
+    return sum;
+}
+
+console.log(strToArr("Milorad Ljuba"))
