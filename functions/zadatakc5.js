@@ -3,13 +3,31 @@
 [7, 9, 0, -2] -> -2
 [7, 9, 0, -2], 2 -> [0, -2]*/
 
-function getlastEl(arr,n) {
-    var element = "";
-    for (i=0,j=n ; i<arr.length;i++){
+function getlastEl(arr, n) {
+    
+    var newArr = [];
+    var j = 0;
 
+    if (typeof n === "undefined") {
+    
+        for (i = arr.length - 1; i >= 0; i--) {
+            return arr[i];
+    
+        }
+
+    } else {
         
-
+        for (i = arr.length-n; i < arr.length; i++) {
+            newArr[j] = arr[i];
+            j++;
+        }
     }
+
+return newArr;
+
 
 
 }
+console.log(getlastEl([1, 2, 3, 4], 2));
+
+
