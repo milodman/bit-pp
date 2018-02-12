@@ -1,3 +1,6 @@
+/*Write a function to count vowels in a provided string. If you are  not aware of indexOf function, try to use switch statement.
+*/
+
 'use strict';
 
 function countVowels(str) {
