@@ -4,12 +4,18 @@ In other cases, input array should be returned.*/
 
 "use strict"
 
-function firstMiddleLast(arr) {
-    var firstElement;
-    var MidElement;
-    var lastElement;
-    var newarr = [];
-   
+function lastMidFirstEl(arr) {
+    if (arr.length === 0) {
+        return arr;
+    }
+
+    var a = arr.length;
+
+    if (a % 2 === 1) {
+        return arr[0] + " is first element " + arr[(a / 2) - 0.5] + " is middle element " + arr[a - 1] + " is last element";
+    } else if (a % 2 === 0) {
+        return arr[0] + " is first element " + arr[a - 1] + " is last element";
+    }
 
 }
-console.log(firstMiddleLast([111, 22323, 3, 8, 12, 7]));
+console.log(lastMidFirstEl([1, 2, 3, 4, 5, 6]));
