@@ -39,3 +39,29 @@ function outer(param) {
 // console.log(bigA());
 
 
+var milorad ={
+    name:"Milorad",
+    lastname:"mandrapa",
+    age:32,
+    occupation:"wannabe programmer",
+    hobby:"swimming",
+    reaction: function(par) {
+        return "sleeping makes me " + par;
+    }
+
+}
+//console.log(milorad);
+/*
+console.log(milorad.lastname);*/
+
+console.log(milorad.reaction("eeeeeeee"));
+
+milorad = milorad.age;
+console.log(milorad);
+
+console.log(typeof milorad);
+
+
+
+
+
