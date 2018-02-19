@@ -44,9 +44,9 @@ var milorad ={
     lastname:"mandrapa",
     age:32,
     occupation:"wannabe programmer",
-    hobby:"swimming",
-    reaction: function(par) {
-        return "sleeping makes me " + par;
+    hobby:["swimming", "reading", "hiking"],
+    klupa: function(par) {
+        return "danas sedim sa " + par;
     }
 
 }
@@ -54,13 +54,22 @@ var milorad ={
 /*
 console.log(milorad.lastname);*/
 
-console.log(milorad.reaction("eeeeeeee"));
+console.log(milorad.klupa("Miroslavom"));
 
-milorad = milorad.age;
+/*milorad = milorad.age;
 console.log(milorad);
 
-console.log(typeof milorad);
+console.log(typeof milorad);*/
+milorad.hobby[1]
 
+var miii ={
+
+}
+
+miii.name = "Miroslav";
+delete miii.name;
+miii.hobby = ["swimming", "reading", "hiking"];
+console.log(miii);
 
 
 
