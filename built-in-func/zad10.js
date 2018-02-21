@@ -8,22 +8,21 @@
 
 "use strict"
 
-function swaps(str) {
-      var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      var LOWER = 'abcdefghijklmnopqrstuvwxyz';
-      var changedStr = "";
-      var arr = str.split('');
-      for (var i = 0; i < arr.length; i++) {
-            if (arr[i] === LOWER.match(arr[i])) {
-                  arr[i] = arr[i].toUpperCase();
-
-
-                  changedStr += arr[i];
-            } else {
-                  arr[i].toLowerCase();
-                  changedStr += arr[i];
-            }
+function convert(str) {
+      var newString = str.split('');
+      
+      var newString1 = [];
+      var counter = 0;
+      for (var i = 0; i < newString.length; i++) {
+          if (newString[i] === newString[i].toUpperCase()) {
+              newString[i] = newString[i].toLowerCase();
+             
+          }else{
+              newString[i] = newString[i].toUpperCase();
+          }
       }
-      return changedStr;
-}
-console.log(swaps("tHE qUICK bROWN fOX"));
+      return newString;
+  
+  
+  }
+  console.log(convert('The Quick Brown Fox'));
