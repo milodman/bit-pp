@@ -100,10 +100,10 @@
 
 
     /*** KREIRAMO INSTANCU FILMA UBACUJEMO  NAZIV FILMA, VREDNOST ZANRA. DUZINU U MIN ***/
-    var movie1 = new Movie("Berba cvaraka u Makedoniji", genre1.getData(), 150)
-    var movie2 = new Movie("Indijanci kolju kupus", genre2.getData(), 130)
-    var movie3 = new Movie("Suva krpa na dnu mora", genre2.getData(), 67)
-    var movie4 = new Movie("Australijski lubencicar", genre2.getData(), 96)
+    var movie1 = new Movie("Torente-glupa ruka zakona", genre1.getData(), 150)
+    var movie2 = new Movie("Sam u kuci", genre2.getData(), 130)
+    var movie3 = new Movie("Sam u kuci 2", genre2.getData(), 67)
+    var movie4 = new Movie("Povratak u buducnost", genre2.getData(), 96)
     // console.log(m1.getDataMovie());
     // console.log(m2.getDataMovie());
 
