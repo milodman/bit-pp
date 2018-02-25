@@ -1,135 +1,116 @@
+"use strict";
+
 (function () {
-
-
-    // Kreiramo konstruktor za Zanr.
 
     function Genre(name) {
         this.name = name;
-        //UZIMAMO PRVO I ZADNJE SLOVA ZANRA I RADIMO UPPER U METODI
         this.getData = function () {
             var firstLetter = this.name.charAt(0);
-            var lastLetter = this.name.charAt(name.length - 1);
-            var result = firstLetter + lastLetter;
+            var lastletter = this.name.charAt(name.length - 1);
+            var result = firstLetter + lastletter;
             return result.toUpperCase();
         }
     }
-
-    // Kreiramo konstruktor Movie
+    // function Genre
 
     function Movie(title, genre, length) {
         this.title = title;
         this.genre = genre;
         this.length = length;
-        // PRAVIMO NAZIV FILMA SA ZANROM I DUZINOM
-        this.getDataMovie = function () {
-
-            return this.title + ' ' + this.genre + ' ' + this.length + "min, ";
+        this.getData = function () {
+            return this.title + ", " + this.length + " min, " + this.genre.getData();
         }
     }
-    // Kreiramo konstrutor za Program
+    // function movie
+
 
     function Program(date) {
-        this.date = date;
-        this.moviesList = [];
-
+        this.date = new Date(date);
+        this.myDay = this.date.getDate();
+        this.myMonth = this.date.getMonth() + 1;
+        this.myDate = this.date.getFullYear();
+        this.fullDate = this.myDay + "." + this.myMonth + "." + this.myDate;
+        this.listOfMovies = [];
         this.addMovie = function (movie) {
-            this.moviesList.push(movie);
+            return this.listOfMovies.push(movie);
         }
-        this.getNumOfMovies = function () {
-            return this.moviesList.length;
-
+        this.numberOfMovies = function () {
+            return this.listOfMovies.length;
         }
-        this.programLength = function () {
+        this.getProgramLength = function () {
             var length = 0;
-            for (var i = 0; i < this.moviesList.length; i++) {
-                var movie = this.moviesList[i];
+            for (var i = 0; i < this.listOfMovies.length; i++) {
+                var movie = this.listOfMovies[i];
                 length += movie.length;
-
             }
             return length;
         }
         this.getData = function () {
-            var myDate = this.date;
-            var dayProgram = '\t';
-            // DNEVNI PROGRAM DAN,MESEC,GODINA SA UKUPNOM DUZINOM POZIVAMO METODU DUZINA FILMA
-            dayProgram += this.date.getDate() + '.' + this.date.getMonth() + '.' + this.date.getYear() + ',' + ' program length from ' + this.programLength() + ' min  from all movies \n';
-            for (var i = 0; i < this.moviesList.length; i++) {
-                var movie = this.moviesList[i]
-                dayProgram += '\t\t\t' + movie.getDataMovie() + '\n';
+            var output = "";
+            var output = this.fullDate + ", program duration, " + this.getProgramLength() + "min\n"
+            for (var i = 0; i < this.listOfMovies.length; i++) {
+                var movie = this.listOfMovies[i]
+                output += "\t\t" + movie.getData() + "\n"
             }
-            return dayProgram;
+            return output;
         }
 
     }
+    // function program getData important
 
-    // Kreiramo konstruktor za festival
+    function Festival(name) {
+        this.name = name;
+        this.listOfPrograms = [];
+        this.numberOfAllMovies = function () {
+            var num = 0;
+            for (var i = 0; i < this.listOfPrograms.length; i++) {
+                num += this.listOfPrograms[i].numberOfMovies();
 
-    function Festival(nameFestival) {
-        this.nameFestival = nameFestival;
-        this.programs = [];
-        // this.totalNumOfMovies = totalNumOfMovies;
-        this.programFestival = function (program1) {
-            return this.programs.push(program1)
-
-
+            }return num;
         }
-        // IME FESTIVALA I UKUPAN BROJ FILMOVA
-        this.getDataFestival = function () {
-            var final = '';
-           
-            var firstFinal = nameFestival + ' has  movie titles ' + this.programFestival() + ' movies \n';
 
-            var result = '';
-            for (var i = 0; i < this.programs.length-1; i++) {
-                result += '\t' + this.programs[i];
+        this.addProgram = function (program) {
+            this.listOfPrograms.push(program);
+
+        };
+        this.getData = function () {
+            var output = this.name + " has " + this.numberOfAllMovies() + " movie titles" + "\n"
+            var output1 = "";
+            for (var i = 0; i < this.listOfPrograms.length; i++) {
+                var program = this.listOfPrograms[i];
+                output1 += "\t" + program.getData() ;
+                
             }
-             final= firstFinal + result;
-             return final;
+            return output + output1;
         }
-
-
-
     }
+    // function festival
 
 
-    /***KREIRAMO INSTANCU ZANRA UBACUJEMO ARGUMENT IMENA ***/
-    var genre1 = new Genre("Action");
-    var genre2 = new Genre("Comedy");
-    // console.log(g1.getData());
-    // console.log(g2.getData());
+    var action = new Genre("action");
+    var drama = new Genre("drama");
+    var comedy = new Genre("comedy");
+    // console.log(action.getData());
+
+    var movie = new Movie("Svemirci su krivi za sve", action, 90);
+    var movie1 = new Movie("Ko to tamo peva", drama, 101);
+    var movie2 = new Movie("Umri muski", action, 119);
+    var movie3 = new Movie("Why him", comedy, 90);
+
+    //console.log(movie.getData());
 
 
-    /*** KREIRAMO INSTANCU FILMA UBACUJEMO  NAZIV FILMA, VREDNOST ZANRA. DUZINU U MIN ***/
-    var movie1 = new Movie("Torente-glupa ruka zakona", genre1.getData(), 150)
-    var movie2 = new Movie("Sam u kuci", genre2.getData(), 130)
-    var movie3 = new Movie("Sam u kuci 2", genre2.getData(), 67)
-    var movie4 = new Movie("Povratak u buducnost", genre2.getData(), 96)
-    // console.log(m1.getDataMovie());
-    // console.log(m2.getDataMovie());
-
-    /*** KREIRAMO INSTANCU PROGRAMA UBACUJEM DATUM U FORMI YYYY, M, DD ***/
-    var program1 = new Program(new Date(2018, 2, 21));
-    var program2 = new Program(new Date(2018, 2, 22));
-
-    /** U PROGRAMU POZIVAMO METODU addMovie SA ARGUMENTOM KOJI PROSLEDUJE FILM ***/
+    var program1 = new Program("2018-04-05");
+    var program2 = new Program("2018-05-07")
+    program1.addMovie(movie);
     program1.addMovie(movie1);
     program1.addMovie(movie2);
-    program1.addMovie(movie3);
-    program2.addMovie(movie1);
-    program2.addMovie(movie2);
-    program2.addMovie(movie4);
-
-    // console.log(program1.getData());
-
-    
-
-    var festival1 = new Festival('Weekend Festival')
-    var festival2 = new Festival('Weekend Festival')
-    festival1.programFestival(program1.getData())
-    festival1.programFestival(program2.getData())
-    console.log(festival1.getDataFestival());
-
-
+    program2.addMovie(movie3);
+    var weekendFestival = new Festival("Weekend festival")
+    weekendFestival.addProgram(program1);
+    weekendFestival.addProgram(program2);
+    //console.log(program1.listOfMovies);
+    console.log(weekendFestival.getData());
 
 
 })();
