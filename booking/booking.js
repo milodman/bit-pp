@@ -95,15 +95,25 @@
 
         this.getData = function (){
             var numberOfPlayers = this.getNumberOfPlayersInHouse();
-            
+            var counterSrbija = 0;
+
             var output = this.competition + ", "+ this.listOfBettingPlaces.length + " betting places, "+  numberOfPlayers + " bets" +"\n\t"  ;
             for(var i = 0; i < this.listOfBettingPlaces.length; i++){
                 output+=this.listOfBettingPlaces[i].getData() + "\n";
                 for(var j = 0; j < this.listOfBettingPlaces[i].listOfPlayers.length; j++){
                     output+= " \t \t" +this.listOfBettingPlaces[i].listOfPlayers[j].getData() + " \t\n";
+                    if(this.listOfBettingPlaces[i].listOfPlayers[j].country.getData()==="SR"){
+                        counterSrbija++;
+                        
+
+                    }
                 }
 
             }
+            
+              
+            
+            output = output + "Na Srbiju ima: " + counterSrbija + " opklada." ;
             return output;
         }; 
 
@@ -131,10 +141,10 @@
 
     var address1 = new Address(country1, "Beograd", 11000, "Nemanjina", 4);
    
-    var player1 = createPlayer("Milorad", "Mandrapa", "02.02.2018", 120, country1);
-    var player2 = createPlayer("Miloraddddd", "Mandrapaaaaa", "03.03.2018", 150, country2);
-    var player3 = createPlayer("terter", "Mandrapaaaaa", "03.03.2018", 150, country2);
-    var player4 = createPlayer("fghfghfg", "Mandrapaaaaa", "03.03.2018", 150, country1);
+    var player1 = createPlayer("Milorad", "Mandrapa", "02.02.1998", 120, country1);
+    var player2 = createPlayer("Miloraddddd", "Mandrapaaaaa", "03.03.2000", 150, country2);
+    var player3 = createPlayer("terter", "Mandrapaaaaa", "03.03.1986", 150, country2);
+    var player4 = createPlayer("fghfghfg", "Mandrapaaaaa", "03.03.1969", 150, country1);
 
     var bettingPl1 = createBettingPlace(address1);
     bettingPl1.addPlayer(player1);
