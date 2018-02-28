@@ -1,0 +1,8 @@
+input, select,option {
+    display: block;
+    margin:5px 5px;
+}
+form label {
+    display: block;
+    margin:5px auto;
+}
