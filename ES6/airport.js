@@ -58,41 +58,27 @@
         function Airport() {
             this.name = "Nikola Tesla";
             this.listOfFlights = [];
-
-
         }
         Airport.prototype.addFlight = function (flight) {
             this.listOfFlights.push(flight);
         }
         Airport.prototype.getData = function () {
-            var totalPassengers = 0;
-            var output1 = "";
-            var output2 = "";
-
+            let totalPassengers = 0;
+            let output1 = "";
             this.listOfFlights.forEach(function (flight) {
                 output1 += `    ${flight.getData()}
-    `;
+    `; 
+                totalPassengers += flight.listOfPassengers.length
                 flight.listOfPassengers.forEach(function (passenger) {
                     output1 += `    ${passenger.getData()}
         `;
-                })
-
-            })
-            // for (var i = 0; i < this.listOfFlights.length; i++) {
-            //     var flight = this.listOfFlights[i];
-            //     output1 += "\t" + this.listOfFlights[i].getData() + "\n";
-            //     totalPassengers += flight.listOfPassengers.length
-            //     for (var j = 0; j < this.listOfFlights[i].listOfPassengers.length; j++) {
-            //         var passenger = this.listOfFlights[i].listOfPassengers[j]
-            //         output1 += "\t\t" + passenger.getData() + "\n";
-
-            //     }
-            // }
-            var output = "Airport: " + this.name + ", total passengers: " + totalPassengers + "\n";
-
-
+                });
+            });
+            var output = `Airport: ${this.name} , total passengers: ${totalPassengers}
+`;
             return output + output1;
         }
+
         // function flight
 
         function createFlight(relation, date) {
@@ -105,18 +91,18 @@
         }
         // create passenger
 
-        var passenger1 = createPassenger("Jessica", "Alba", 14, "b");
-        var passenger2 = createPassenger("Julia", "Roberts", 11, "e");
-        var passenger3 = createPassenger("Matt", "Damon");
-        var passenger4 = createPassenger("Robbie", "Williams", 1);
-        var passenger5 = createPassenger("Mornar", "Popaj")
+        const passenger1 = createPassenger("Jessica", "Alba", 14, "b");
+        const passenger2 = createPassenger("Julia", "Roberts", 11, "e");
+        const passenger3 = createPassenger("Matt", "Damon");
+        const passenger4 = createPassenger("Robbie", "Williams", 1);
+        const passenger5 = createPassenger("Mornar", "Popaj")
         // create passenger
 
-        var airport1 = new Airport();
+        const airport1 = new Airport();
         // instanceof airport
 
-        var flight1 = createFlight("Belgrade - Paris", "2018-04-05");
-        var flight2 = createFlight("Barcelona - Belgrade", "2018-04-12");
+        const flight1 = createFlight("Belgrade - Paris", "2018-04-05");
+        const flight2 = createFlight("Barcelona - Belgrade", "2018-04-12");
         // create flight
 
         flight1.addPassenger(passenger1);
@@ -129,7 +115,5 @@
         airport1.addFlight(flight2);
 
         console.log(airport1.getData());
-
-
     }
 )();
